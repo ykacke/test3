@@ -13,7 +13,7 @@ class Questions(StatesGroup):
     cleanliness_rating = State()
     extra_comments = State()
 
-@questions_router.message(Questions.name)
+@questions_router.message(Command('complaint'))
 async def complaint_details(message: types.Message, state: FSMContext):
     await message.answer("Здравствуйте! Как вас зовут?")
     await state.set_state(Questions.complaint_details)
